@@ -1,5 +1,5 @@
 module MyEnumerable
   def all?(&block)
-    all result = @list.map(&block)
-  
+    all_return = @list.map(&block)
+    !all_return.include? false
 end
