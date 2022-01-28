@@ -5,3 +5,7 @@ module MyEnumerable
 end
 
 def any?(&block)
+  any_return = @list.map(&block)
+  any_return.include? true
+end
+
