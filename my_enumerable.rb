@@ -1,19 +1,23 @@
 module MyEnumerable
-  def all?(&block)
-    all_return = @list.map(&block)
-    !all_return.include? false
-  end
-
-  def any?(&block)
-    any_return = @list.map(&block)
-    any_return.include? true
-  end
-
-  def filter 
-    filter = []
-    @list.each do |e|
-      filter.push(e) if yield(e)
+  def all?
+    @list.each do |item|
+      return false unless yield item
     end
-    filter
+    true
+  end
+
+  def any?
+    @list.each do |item|
+      return true if yield item
+    end
+    false
+  end
+
+  def filter
+    result = []
+    @list.each do |item|
+      result << item if yield item
+    end
+    result
   end
 end
