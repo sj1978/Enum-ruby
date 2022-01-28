@@ -9,3 +9,6 @@ def any?(&block)
   any_return.include? true
 end
 
+def filter 
+  filter = []
+  @list.each do |e|
